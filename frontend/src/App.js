@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 import SideBar from "./Component/Navbar/Sidebar";
 import "./App.css";
