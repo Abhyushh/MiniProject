@@ -9,7 +9,7 @@ function App() {
       <React.Fragment>
         <div className="App">
           <SideBar />
-          {/* <Footer /> */}
+          <Footer />
         </div>
       </React.Fragment>
     );
