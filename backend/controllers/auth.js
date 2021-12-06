@@ -1,4 +1,5 @@
 const fileHandling = require('../utils/fileHandling');
+const User = require('../models/user');
 const queryString = require('querystring');
 const request = require('request');
 
@@ -10,7 +11,7 @@ var spotify_redirect_uri = 'http://localhost:3000/id';
 
 exports.getLogin = (req, res, next) => {
     console.log("Attempting to log in");
-    
+
     var state = fileHandling.generateRandomString(16);
     res.cookie(stateKey, state);
 
@@ -26,7 +27,8 @@ exports.getLogin = (req, res, next) => {
         }));
 }
 
-exports.getAccessToken = (req, res) => {
+exports.getAccessToken = (req, res, next) => {
+    console.log("RUNNINGGGGG")
     var code = req.query.code || null;
     var state = req.query.state || null;
     var storedState = req.cookies ? req.cookies[stateKey] : null;
@@ -76,13 +78,8 @@ exports.getAccessToken = (req, res) => {
 
                 console.log("Logged In Successfully");
                 spotifyApi.setAccessToken(access_token);
-
-                // res.redirect('/playlist' +
-                //     queryString.stringify({
-                //         access_token: access_token,
-                //         refresh_token: refresh_token
-                //     }));
-                res.redirect('/playlist');
+                console.log("DONEEEEEEE_______________________HEERERERERERERERERER")
+                res.redirect('/dashboard');
             } else {
                 res.redirect('/' +
                     queryString.stringify({
