@@ -14,7 +14,108 @@ exports.start = (req, res) => {
 
 exports.dashboard = (req, res) => {
     // res.redirect('/playlist');
-    res.send("data")
+    res.redirect("http://localhost:3000")
+}
+
+// exports.postPlaylist = (req, res) => {
+//     // res.redirect('/playlist');
+//     console.log("vf");
+//     // res.redirect("http://localhost:3000")
+
+// }
+exports.postPlaylist = (req, res, next) => {
+    // const playlistId = req.body.id;
+    // const playlistName = req.body.name;
+    // console.log(playlistId);
+    // console.log(playlistName);
+    const Id = User.getUserId();
+    const spotifyApi = require('../spotifyApi').getAPI();
+    const spotifyToYoutube = SpotifyToYoutube(spotifyApi)
+    api.initalize();
+    const pId = req.body.id;
+    const playlistName = req.body.name;
+    console.log(playlistId);
+    console.log(playlistName);
+    console.log("NAME:::::")
+    console.log(playlistName)
+    var mydata = {
+        'snippet': {
+            "title": playlistName,
+            "description": "playlist description.",
+            "tags": [
+                "sample playlist",
+                "API call"
+            ],
+            "defaultLanguage": "en"
+        },
+        'status': {
+            "privacyStatus": "private"
+        }
+    }
+    request({
+        url: "https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus&key=AIzaSyAl072P4hhA0cJXgJnMsITJ_LKtH1KZXXY",
+        method: "POST",
+        json: true,
+        headers: {
+            'Authorization': 'Bearer ya29.a0ARrdaM_D1Yrljo6rza2UfIyoCodAvAS69wlpqu2rAFX5eG0m5F1RUFin_HLYsPZXMXweWBBgUPy_F4eeugN9KJLbdLDph54_l3K7Bgsb-nKfmFLtzDvJbrAozKbaaNjGUjzTEtZNPahvwc0LUSoDM9j9zgIp',
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: mydata
+    }, function (error, response, body) {
+        console.log(response.body.id);
+        console.log("{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}")
+        playlistId = response.body.id;
+        console.log(playlistId);
+    });
+
+    spotifyApi.getPlaylistTracks(pId)
+        .then(
+            async function (song) {
+                console.log("SONGSSSSS")
+                var songs = song.body.items;
+                console.log(songs.length);
+                for (var j = 0; j < Number(songs.length); j++) {
+                    // console.log(data.body);
+                    console.log("hererererere")
+                    console.log('The playlist contains these tracks', songs[j].track.id);
+                    console.log('The playlist contains these tracks', songs[j].track.name);
+                    var track_id = await spotifyToYoutube(songs[j].track.id)
+
+                    var songData = {
+                        "snippet": {
+                            "playlistId": playlistId,
+                            "position": 0,
+                            "resourceId": {
+                                "kind": "youtube#video",
+                                "videoId": track_id
+                            }
+                        }
+                    }
+
+                    request({
+                        url: "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&key=AIzaSyAl072P4hhA0cJXgJnMsITJ_LKtH1KZXXY",
+                        method: "POST",
+                        json: true,
+                        headers: {
+                            'Authorization': 'Bearer ya29.a0ARrdaM_D1Yrljo6rza2UfIyoCodAvAS69wlpqu2rAFX5eG0m5F1RUFin_HLYsPZXMXweWBBgUPy_F4eeugN9KJLbdLDph54_l3K7Bgsb-nKfmFLtzDvJbrAozKbaaNjGUjzTEtZNPahvwc0LUSoDM9j9zgIp',
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        body: songData
+                    }, function (error, response, body) {
+                        console.log(response);
+                        console.log("{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}")
+                    });
+
+                }
+                console.log("therereeeeee")
+            },
+            function (err) {
+                console.log('Something went wrong!', err);
+            }
+        );
+
 }
 
 exports.playlists = async (req, res) => {
