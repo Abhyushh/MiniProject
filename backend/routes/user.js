@@ -9,4 +9,6 @@ router.get('/dashboard', userController.dashboard);
 
 router.get('/playlist', userController.playlists);
 
+router.get('/search', userController.search);
+
 module.exports = router;
