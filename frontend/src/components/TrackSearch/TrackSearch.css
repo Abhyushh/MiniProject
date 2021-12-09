@@ -1,0 +1,37 @@
+.track-search-container {
+	display: flex;
+	justify-content: space-between;
+    align-items: center;
+	color: rgb(255, 255, 255);
+	position: relative;
+	top: 10px;
+	margin-bottom: 20px;
+	padding: 0 ;
+}
+
+.track-search-container input {
+	padding: 0;
+	background: rgb(60, 62, 77);
+	color: rgb(255, 255, 255);;
+	width: 325px;
+	height: 30px;
+	border-radius: 10px;
+	border: none;
+  font-family: "Poppins", sans-serif;
+	padding: 4px 4px 4px 10px;
+	outline: none;
+}
+
+.search {
+	margin-left: 5px;
+	cursor: pointer;
+	cursor: pointer;
+  color: white;
+  font-size: 15px;
+}
+
+button {
+	background: none;
+	border: none;
+	outline: none;
+}

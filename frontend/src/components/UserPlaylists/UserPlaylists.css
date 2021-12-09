@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+.user-playlist-container {
+  padding: 50px 32px;
+  color: #fff;
+  margin: 0;
+}
+
+.user-playlist-header {
+  font-weight: 100;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  margin: 0;
+  padding: 0 0 5px 0;
+  letter-spacing: 1px;
+}
+
+.user-playlist-item {
+  list-style-type: none;
+  line-height: 28px;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 140px;
+  cursor: pointer;
+  margin: 20px 0;
+
+}
+
+.user-playlist-item:hover {
+  color: #fff;
+}
+
+.user-playlist-container .active {
+	margin-left: -3px;
+}
+
+.user-playlist-container .active:before {
+	content: "";
+	border-left: 3px solid #1db954;
+	position: relative;
+	left: -18px;
+}
