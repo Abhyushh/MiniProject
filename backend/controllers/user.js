@@ -13,7 +13,8 @@ exports.start = (req, res) => {
 }
 
 exports.dashboard = (req, res) => {
-    res.redirect('/playlist');
+    // res.redirect('/playlist');
+    res.send("data")
 }
 
 exports.playlists = async (req, res) => {
