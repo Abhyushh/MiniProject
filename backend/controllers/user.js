@@ -57,7 +57,7 @@ exports.postPlaylist = (req, res, next) => {
         method: "POST",
         json: true,
         headers: {
-            'Authorization': 'Bearer ya29.a0ARrdaM_D1Yrljo6rza2UfIyoCodAvAS69wlpqu2rAFX5eG0m5F1RUFin_HLYsPZXMXweWBBgUPy_F4eeugN9KJLbdLDph54_l3K7Bgsb-nKfmFLtzDvJbrAozKbaaNjGUjzTEtZNPahvwc0LUSoDM9j9zgIp',
+            'Authorization': 'Bearer ya29.a0ARrdaM-zMQeilLy6EayOJOPx6W_PMru0mcjmPRh7LybIl7YZQxsQrjGGmF-G_LIhrGDVizHMX2dtsDuAJKSGzXUNoyW_AdU-ZsC5XLRv9EAqOKafLqJrJRhrIqB5gGdneeDQ6WBoQ-rnkqA7WoRt1S7kDwSV',
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
@@ -98,7 +98,7 @@ exports.postPlaylist = (req, res, next) => {
                         method: "POST",
                         json: true,
                         headers: {
-                            'Authorization': 'Bearer ya29.a0ARrdaM_D1Yrljo6rza2UfIyoCodAvAS69wlpqu2rAFX5eG0m5F1RUFin_HLYsPZXMXweWBBgUPy_F4eeugN9KJLbdLDph54_l3K7Bgsb-nKfmFLtzDvJbrAozKbaaNjGUjzTEtZNPahvwc0LUSoDM9j9zgIp',
+                            'Authorization': 'Bearer ya29.a0ARrdaM-zMQeilLy6EayOJOPx6W_PMru0mcjmPRh7LybIl7YZQxsQrjGGmF-G_LIhrGDVizHMX2dtsDuAJKSGzXUNoyW_AdU-ZsC5XLRv9EAqOKafLqJrJRhrIqB5gGdneeDQ6WBoQ-rnkqA7WoRt1S7kDwSV',
                             'Accept': 'application/json',
                             'Content-Type': 'application/json'
                         },
@@ -115,7 +115,6 @@ exports.postPlaylist = (req, res, next) => {
                 console.log('Something went wrong!', err);
             }
         );
-
 }
 
 exports.playlists = async (req, res) => {

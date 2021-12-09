@@ -62,6 +62,11 @@ const MainHeader = ({
       headers: {
         "Content-type": "application/json; charset=UTF-8"
       },
+      body: JSON.stringify({
+        // title: 'React POST Request Example'
+        id: currentPlaylist.id,
+        name: currentPlaylist.name
+      })
       // body: JSON.stringify()
     }).then(() => {
       console.log('added')
