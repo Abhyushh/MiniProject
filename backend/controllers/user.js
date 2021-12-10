@@ -13,21 +13,12 @@ exports.start = (req, res) => {
 }
 
 exports.dashboard = (req, res) => {
-    // res.redirect('/playlist');
     res.redirect("http://localhost:3000")
 }
 
-// exports.postPlaylist = (req, res) => {
-//     // res.redirect('/playlist');
-//     console.log("vf");
-//     // res.redirect("http://localhost:3000")
 
 // }
 exports.postPlaylist = (req, res, next) => {
-    // const playlistId = req.body.id;
-    // const playlistName = req.body.name;
-    // console.log(playlistId);
-    // console.log(playlistName);
     const Id = User.getUserId();
     const spotifyApi = require('../spotifyApi').getAPI();
     const spotifyToYoutube = SpotifyToYoutube(spotifyApi)
@@ -57,7 +48,7 @@ exports.postPlaylist = (req, res, next) => {
         method: "POST",
         json: true,
         headers: {
-            'Authorization': 'Bearer ya29.a0ARrdaM-zMQeilLy6EayOJOPx6W_PMru0mcjmPRh7LybIl7YZQxsQrjGGmF-G_LIhrGDVizHMX2dtsDuAJKSGzXUNoyW_AdU-ZsC5XLRv9EAqOKafLqJrJRhrIqB5gGdneeDQ6WBoQ-rnkqA7WoRt1S7kDwSV',
+            'Authorization': 'Bearer ya29.a0ARrdaM-m_h0-o_B1PPV8U6iUuu3IrbgZJjrsD5qC8_GOavHAscVWquMZAvqGQgNh7IcpAY0O5auxNGFkx9LCWLpeKeNIa0Y1DpWub9rvvf2X9wzYYE8bAFChi34_yhJAvg3bWel0vvDm7jgye9vAHAFkOs6K',
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
@@ -76,7 +67,6 @@ exports.postPlaylist = (req, res, next) => {
                 var songs = song.body.items;
                 console.log(songs.length);
                 for (var j = 0; j < Number(songs.length); j++) {
-                    // console.log(data.body);
                     console.log("hererererere")
                     console.log('The playlist contains these tracks', songs[j].track.id);
                     console.log('The playlist contains these tracks', songs[j].track.name);
@@ -98,7 +88,7 @@ exports.postPlaylist = (req, res, next) => {
                         method: "POST",
                         json: true,
                         headers: {
-                            'Authorization': 'Bearer ya29.a0ARrdaM-zMQeilLy6EayOJOPx6W_PMru0mcjmPRh7LybIl7YZQxsQrjGGmF-G_LIhrGDVizHMX2dtsDuAJKSGzXUNoyW_AdU-ZsC5XLRv9EAqOKafLqJrJRhrIqB5gGdneeDQ6WBoQ-rnkqA7WoRt1S7kDwSV',
+                            'Authorization': 'Bearer ya29.a0ARrdaM-m_h0-o_B1PPV8U6iUuu3IrbgZJjrsD5qC8_GOavHAscVWquMZAvqGQgNh7IcpAY0O5auxNGFkx9LCWLpeKeNIa0Y1DpWub9rvvf2X9wzYYE8bAFChi34_yhJAvg3bWel0vvDm7jgye9vAHAFkOs6K',
                             'Accept': 'application/json',
                             'Content-Type': 'application/json'
                         },
@@ -125,9 +115,7 @@ exports.playlists = async (req, res) => {
 
     spotifyApi.getUserPlaylists(Id)
         .then(function (data) {
-            // console.log('Retrieved playlists', data.body);
             var playlists = data.body.items;
-            // res.send(data.body);
             for (var i = 0; i < 1; i++) {
                 console.log("NAME:::::")
                 console.log(playlists[i].name)
@@ -169,7 +157,6 @@ exports.playlists = async (req, res) => {
                             var songs = song.body.items;
                             console.log(songs.length);
                             for (var j = 0; j < Number(songs.length); j++) {
-                                // console.log(data.body);
                                 console.log("hererererere")
                                 console.log('The playlist contains these tracks', songs[j].track.id);
                                 console.log('The playlist contains these tracks', songs[j].track.name);
@@ -229,32 +216,3 @@ exports.search = async (req, res, next) => {
     }
 
 }
-
-
-
-
-// spotifyApi.getTracks(['3djNBlI7xOggg7pnsOLaNm']).then(function (data) {
-    //     console.log("SPOTifyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy")
-    //     console.log(data.body);
-    // })
-
-    // spotifyApi.getPlaylistTracks('1zoO60ESBlwIBQvy04Svnq')
-    //     .then(
-    //         function (data) {
-    //             console.log("PLAYYYYYLISTSSSSSSSSSSSSSSSSD")
-    //             console.log('The playlist contains these tracks', data.body.items[0].track.id);
-    //             console.log('The playlist contains these tracks', data.body.items[0].track.name);
-    //         },
-    //         function (err) {
-    //             console.log('Something went wrong!', err);
-    //         }
-    //     );
-
-    // const id = await spotifyToYoutube('3BQHpFgAp4l80e1XslIjNI')
-    // console.log("U GET THE ID");
-    // console.log(id);
-
-    // api.search(id).then((result) => {
-    //     console.log("RESULT IS HERE YHGFDSGFDGFSFDDDDDDDDD");
-    //     console.log(result);
-    // })

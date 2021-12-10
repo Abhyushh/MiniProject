@@ -47,35 +47,3 @@ app.use(userRoutes);
 app.listen(PORT, function () {
     console.log("Started");
 });
-
-
-
-
-
-    // var mydata = {
-    //     'snippet': {
-    //         "title": "Sample API",
-    //         "description": "playlist description.",
-    //         "tags": [
-    //             "sample playlist",
-    //             "API call"
-    //         ],
-    //         "defaultLanguage": "en"
-    //     },
-    //     'status': {
-    //         "privacyStatus": "private"
-    //     }
-    // }
-    // request({
-    //     url: "https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus&key=AIzaSyAl072P4hhA0cJXgJnMsITJ_LKtH1KZXXY",
-    //     method: "POST",
-    //     json: true,
-    //     headers: {
-    //         'Authorization': 'Bearer ya29.a0ARrdaM843zq0EWRMpJTtTEuudB0BQAzLECrwNiQ4IydX7J8SL03viiyy9HOngbheVG_0lEORSejk2hoMrOKO6R_WDwm3ksNS2dmoMtq0bqTP_SzaVb76NVvVwquWUBU_wokNoGkvHZSI7XyrJDIL2pD-iPQk',
-    //         'Accept': 'application/json',
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: mydata
-    // }, function (error, response, body) {
-    //     console.log(response);
-    // });
