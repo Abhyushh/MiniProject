@@ -14,7 +14,7 @@ var spotify_client_id = 'be0c50a82d074482896764e825550c95';
 var spotify_client_secret = '6f0194cd5f114b4f940307b920ddfaa8'
 var spotify_redirect_uri = 'http://localhost:5000/id';
 
-var auth_token = '';
+// let auth_token;
 let oauth2Client;
 var SCOPES = ['https://www.googleapis.com/auth/youtube'];
 var TOKEN_DIR = './credentials/';
@@ -111,8 +111,9 @@ exports.loginGoogle = (req, res, next) => {
         oauth2Client.credentials = token;
         console.log("HERERERERERERERERERERERERERERE")
         console.log(token);
-        auth_token = token.access_token;
-        console.log(auth_token);
+        process.env['AUTH'] = token.access_token;
+        // auth_token = token.access_token;
+        console.log(process.env.AUTH);
         storeToken(token);
         // callback(oauth2Client);
         console.log("TO DASHBOARDDDD")
@@ -238,4 +239,4 @@ function getChannel(auth, res) {
     });
 }
 
-exports.auth_token = {auth_token: auth_token};
+exports.auth_token = { auth_token: process.env.AUTH };

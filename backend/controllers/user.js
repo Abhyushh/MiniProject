@@ -5,22 +5,8 @@ const YoutubeMusicApi = require('youtube-music-api')
 var fs = require('fs');
 
 var request = require('request');
-
-var auth_token = '';
 const api = new YoutubeMusicApi()
 let playlistId;
-
-function getToken() {
-    fs.readFile('../credentials/youtube-nodejs-quickstart.json', function processClientSecrets(err, content) {
-        if (err) {
-            console.log('Error loading: ' + err);
-            return;
-        }
-        // Authorize a client with the loaded credentials, then call the YouTube API.
-        console.log(content.access_token);
-        auth_token = content.access_token;
-    });
-}
 
 exports.start = (req, res) => {
     res.redirect('/login');
@@ -34,7 +20,7 @@ exports.dashboard = (req, res) => {
 // }
 exports.postPlaylist = (req, res, next) => {
     console.log("GOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
-    getToken();
+    var auth_token = process.env.AUTH
     const Id = User.getUserId();
     const spotifyApi = require('../spotifyApi').getAPI();
     const spotifyToYoutube = SpotifyToYoutube(spotifyApi)
