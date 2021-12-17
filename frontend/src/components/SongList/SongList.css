@@ -6,9 +6,9 @@
 }
 
 .main-pause-play-btn {
-  background: #1db954;
+  background: lightblue;
   font-family: 'Proxima Nova', Georgia, sans-serif;
-  color: #fff;
+  color: rgb(17, 22, 42);
   border: none;
   border-radius: 20px;
   padding: 10px;
