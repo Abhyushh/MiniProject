@@ -20,9 +20,11 @@ const BrowseView = ({ view, viewType, token, fetchPlaylistSongs, updateHeaderTit
         <li onClick={viewType === 'Featured' ? getPlaylistSongs : null} className='category-item' key={i}>
           <div className='category-image'>
             <img alt="category" src={item.icons ? item.icons[0].url : item.images[0].url} />
-            {viewType === 'Genres' && (
-              <p className='category-name'>{item.name}</p>
-            )}
+            {viewType === 'Genres'
+              // && (
+              //   <p className='category-name'>{item.name}</p>
+              // )
+            }
           </div>
         </li>
       );

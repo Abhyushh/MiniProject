@@ -8,20 +8,20 @@
   -webkit-appearance: none;
   width: 120px;
   height: 5px;
-  background: #4CAF50;
+  background: cyan;
   border-radius: 4px;
   outline: none;
   opacity: 1;
 }
 
-input[type=range]::-moz-range-track {
+/* input[type=range]::-moz-range-track {
   width: 120px;
   height: 5px;
-  background: #4CAF50;
+  background: cyan;
   border-radius: 4px;
   outline: none;
   opacity: 1;
-}
+} */
 
 .volume-container  .fa-volume-up {
 	position: relative;
@@ -31,7 +31,7 @@ input[type=range]::-moz-range-track {
 
 .volume:hover {
     opacity: 0.8;
-    background: #4CAF50;
+    background: cyan;
 }
 
 .volume::-webkit-slider-thumb {

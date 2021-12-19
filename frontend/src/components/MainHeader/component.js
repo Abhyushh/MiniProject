@@ -137,11 +137,14 @@ const MainHeader = ({
       {
         (headerTitle === 'Browse') && (
           <div>
-            <h3 className='header-title'>{headerTitle}</h3>
+            <h3 className='header-title'>Welcome to Apollo</h3>
+            <p className='hello'>The playlist porting App</p><br />
             <div className='browse-headers'>
-              <p className={viewType === 'Genres' ? 'active' : ''} onClick={() => { fetchCategories(token); updateViewType('Genres'); updateHeaderTitle('Browse'); }}>Genres</p>
-              <p className={viewType === 'New Releases' ? 'active' : ''} onClick={() => { fetchNewReleases(token); updateViewType('New Releases'); updateHeaderTitle('Browse'); }}>New Releases</p>
+              <p className={viewType === 'Genres' ? 'active' : ''} onClick={() => { fetchCategories(token); updateViewType('Genres'); updateHeaderTitle('Browse'); }}>Explore</p>
+              {/* <p className={viewType === 'New Releases' ? 'active' : ''} onClick={() => { fetchNewReleases(token); updateViewType('New Releases'); updateHeaderTitle('Browse'); }}>New Releases</p> */}
               <p className={viewType === 'Featured' ? 'active' : ''} onClick={() => { fetchFeatured(token); updateViewType('Featured'); updateHeaderTitle('Browse'); }}>Featured</p>
+              <div className='main'>
+              </div>
             </div>
           </div>
         )

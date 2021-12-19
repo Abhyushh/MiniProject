@@ -74,7 +74,7 @@ const SideMenu = ({
           title === "Browse" ? "active side-menu-item" : "side-menu-item"
         }
       >
-        Browse
+        Home
       </li>
       {/* <li className="side-menu-item radio">Radio</li> */}<br />
       <h3 className="user-library-header">Your Library</h3>
